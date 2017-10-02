@@ -1,5 +1,6 @@
 class Subreddits::CLI
-  def call
+
+  def run
     puts "Today's Trending Subreddits:--------------------------------------------------"
   end
 end
