@@ -1,3 +1,4 @@
 #!/usr/bin/env ruby
+require_relative '../lib/subreddits.rb'
 
-Subreddits::CLI::new.call
+Subreddits::CLI.new.call
