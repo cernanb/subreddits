@@ -5,6 +5,4 @@ require 'pry'
 require_relative './subreddits/version'
 require_relative './subreddits/cli'
 require_relative './subreddits/list-subreddits'
-
-module Subreddits
-end
+require_relative './subreddits/scraper'

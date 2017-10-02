@@ -1,0 +1,7 @@
+class Subreddits::Database
+
+
+
+
+
+end
