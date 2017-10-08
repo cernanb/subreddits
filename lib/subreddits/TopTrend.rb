@@ -2,7 +2,7 @@ class Subreddits::TopTrend
     attr_accessor :name, :karma, :total, :online, :rules, :url
     @@all=[]
 
-    def initialize(name:, :karma, total:, online:, rules:, url:)
+    def initialize
       @all < self
     end
 

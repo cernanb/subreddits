@@ -10,15 +10,19 @@ class Subreddits::CLI
 
   def retrieve_info
     puts "Which subreddit would you like to know about today?"
-    input = gets.chomp
-    while input != 'exit'
-      #takes input, gets the subreddit associated with it, then does find_by_subreddit
-      puts "Name: #{Subreddits::TopTrend(input).name}"
-      puts "Total Subscribers: #{Subreddits::TopTrend(input).total}"
-      puts "Subscribers Online: #{Subreddits::TopTrend(input).online}"
-      puts "Subreddit rules: #{Subreddits::TopTrend(input).rules}"
-      puts "URL: #{Subreddits::TopTrend(input).url}"
+    input = gets.chomp.downcase
+    if input.to_i > 0
+      info = Subreddits::TopTrend.find_by_subreddit(input)
+      puts "Name: #{info.name}"
+      puts "Total Subscribers: #{info.total}"
+      puts "Subscribers Online: #{info.online}"
+      puts "Subreddit rules: #{info.rules}"
+      puts "URL: #{info.url}"
       retrieve_info
+    elsif input.to_1 <= 0 || nil
+      puts "Please try again!"
+    elsif input = 'exit'
+      goodbye
     end
   end
 
