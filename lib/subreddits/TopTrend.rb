@@ -1,15 +1,11 @@
 class Subreddits::TopTrend
     attr_accessor :name, :url, :get_subreddit
-    @@all=[]
-
-    def new_from_subreddit(subreddit)
-      self.new(subreddit, "https://www.reddit.com/r/#{subreddit}")
-    end
+    @@all = []
 
     def initialize(name, url)
       @name = name
       @url = url
-      @all < self
+      @@all << self
       @get_subreddit = Nokogiri::HTML(open("https://reddit.com/r/#{name}"))
     end
 
