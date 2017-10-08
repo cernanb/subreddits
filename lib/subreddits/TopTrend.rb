@@ -1,5 +1,5 @@
 class Subreddits::TopTrend
-    attr_accessor :name, :url
+    attr_accessor :name, :url, :get_subreddit
     @@all=[]
 
     def new_from_subreddit(subreddit)
@@ -10,23 +10,20 @@ class Subreddits::TopTrend
       @name = name
       @url = url
       @all < self
+      @get_subreddit = Nokogiri::HTML(open("https://reddit.com/r/#{name}"))
     end
 
-    def all
+    def self.all
       @@all
     end
 
-    def find_by_subreddit(index)
-      self.all[index-1]
-    end
-
     def total_users(subreddit)
-      #scrape the page for the subreddit total users)
+      @get_subreddit.css('.side .subscribers .number').text
     end
 
     def online_users(subreddit)
+      @get_subreddit.css('.side .users-online .number').text
     end
 
-    def rules(subreddit)
-    end
+
   end

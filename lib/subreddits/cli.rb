@@ -2,7 +2,6 @@ class Subreddits::CLI
 
   def run
     #get a function of top trending subreddits, under the bottom
-    puts "Today's Trending Subreddits:--------------------------------------------------"
     display_subreddits
     retrieve_info
     goodbye
@@ -12,25 +11,24 @@ class Subreddits::CLI
     puts "Which subreddit would you like to know about today?"
     input = gets.chomp.downcase
     if input.to_i > 0
-      info = Subreddits::TopTrend.find_by_subreddit(input)
       puts "Name: #{info.name}"
       puts "Total Subscribers: #{info.total}"
       puts "Subscribers Online: #{info.online}"
-      puts "Subreddit rules: #{info.rules}"
       puts "URL: #{info.url}"
       retrieve_info
     elsif input.to_1 <= 0 || nil
-      puts "Please try again!"
+      puts "Please try again! Press the number or type 'exit'"
     elsif input = 'exit'
       goodbye
     end
   end
 
   def display_subreddits
-    Subreddits::TopTrend.all.each_with_index do |sub, i|
+    Subreddits::Scraper.new
+    Subreddits::TopTrend.all.each_with_index do |s, i|
       puts <<-DOC
       Trending Subreddits:
-      #{i+1}. #{sub.name}
+      #{i+1}. #{s.name}
       DOC
     end
   end
