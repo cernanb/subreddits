@@ -26,7 +26,8 @@ class Subreddits::CLI
   end
 
   def display_subreddits
-    puts Subreddits::TopTrend.all
+    Subreddits::TopTrend.all.each_with_index do |sub, i|
+      puts "#{i+1}. #{sub.name} | #{sub.karma}"
   end
 
   def goodbye
