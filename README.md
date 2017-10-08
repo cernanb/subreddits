@@ -4,9 +4,13 @@
 This gem displays a list of trending subreddits depending on the day you run the CLI.
 
 Please consider the following limitations when running the gem:
+
 ~Subreddits that are multiple words are not broken out into multiple words (eg: iatefood is not I Ate Food)
+
 ~Subreddits will not automatically be capitalized
+
 ~First Post is the first post on the "hot" tab in the subreddit's page
+
 ~Running this gem too many times too quickly will get you '429 Too Many Requests (OpenURI::HTTPError)'
 
 ## Installation
