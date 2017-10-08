@@ -1,9 +1,8 @@
 class Subreddits::CLI
 
   def run
-    #get a function of top 30 subreddits today, under the bottom
+    #get a function of top trending subreddits, under the bottom
     puts "Today's Trending Subreddits:--------------------------------------------------"
-    #will be new scraper class that lists an array of all of the subreddits by index + 1
   end
 
   def get_info

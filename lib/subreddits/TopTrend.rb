@@ -8,7 +8,6 @@ class Subreddits::TopTrend
       @online = online
       @rules = rules
       @url = url
-      @@all = []
     end
 
     def all
@@ -19,12 +18,21 @@ class Subreddits::TopTrend
       self.all[index-1]
     end
 
+    def display_subreddits
+      #scrape the current homepage of reddit and show the top 10 unique subreddits
+    end
 
+    def information
+      #when something on CLI is inputed, scrape subreddit - interpolation - and scrape the info from it
+      #array of total, online, rules, url, in an array
+    end
 
+    def scrape_reddit_page
+      all_links = []
+      file = Nokogiri::HTML(open('http://reddit.com'))
+      file.css('.subreddit hover may-blank').map do |sub|
+        all_links << sub.text
+      end
+      all_links
+    end
   end
-
-
-
-
-
-end
