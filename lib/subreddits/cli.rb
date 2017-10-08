@@ -28,7 +28,10 @@ class Subreddits::CLI
 
   def display_subreddits
     Subreddits::TopTrend.all.each_with_index do |sub, i|
-      puts "#{i+1}. #{sub.name} | #{sub.karma}"
+      puts <<-DOC
+      Trending Subreddits:
+      #{i+1}. #{sub.name}
+      DOC
     end
   end
 

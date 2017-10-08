@@ -1,5 +1,5 @@
 class Subreddits::TopTrend
-    attr_accessor :name, :karma, :total, :online, :rules, :url
+    attr_accessor :name, :total, :online, :rules, :url
     @@all=[]
 
     def initialize
