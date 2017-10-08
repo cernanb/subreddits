@@ -6,17 +6,24 @@ class Subreddits::CLI
   end
 
   def get_info
-    #asks user which number they want to see more on, get input,
-    #if exit, exit, if less than 1, say that's not right
+    puts "Which subreddit would you like to know about today?"
+    input = gets.chomp
+    if input = 'exit'
+      puts "Bye! See you again!"
+      break
+    ##put a method here that takes in input as an agrument, and finds_by_subreddit to deliver information
   end
 
   def retrieve_info
-    #once user picks number, go to the respective one, and call the information on that subreddit
-    #report how many users are there now, and the rules of posting to subreddit
+    puts #TopTrend.findbyname(input).name #name - would be a attr_accessor in Top Trend
+    puts #total subscribers - would be a attr_accessor in Top Trend
+    puts #online subscribers - would be a attr_accessor in Top Trend
+    puts #rules - would be attr_accessor in Top
+    puts #url - would be attr_accessor
   end
 
   def again?
-    #show list of subreddits again ask which one to see
+    puts ""
   end
 
   #code will require a database of subreddits and their information (name of subreddit, total users, how many users there now, rules) and

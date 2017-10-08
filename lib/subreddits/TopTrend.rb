@@ -28,11 +28,10 @@ class Subreddits::TopTrend
     end
 
     def scrape_reddit_page
-      all_links = []
       file = Nokogiri::HTML(open('http://reddit.com'))
       file.css('.subreddit hover may-blank').map do |sub|
-        all_links << sub.text
+        @all << sub.text
       end
-      all_links
+      @all
     end
   end
