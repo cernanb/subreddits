@@ -19,7 +19,6 @@ class Subreddits::CLI
       puts "Name: #{info.name}"
       puts "Total Subscribers: #{info.total_users(info.name)}"
       puts "Subscribers Online: #{info.online_users(info.name)}"
-      puts "#{(info.online_users(info.name).to_f/info.total_users(info.name).to_f)*100} percent of #{info.name} are online right now."
       puts "URL: #{info.url}"
       retrieve_info
     else
