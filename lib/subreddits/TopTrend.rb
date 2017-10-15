@@ -14,11 +14,11 @@ class Subreddits::TopTrend
     end
 
     def total_users(subreddit)
-      Nokogiri::HTML(open("https://reddit.com/r/#{subreddit}")).search('.side .subscribers .number').text
+      Nokogiri::HTML(RestClient.get("https://reddit.com/r/#{subreddit}")).search('.side .subscribers .number').text
     end
 
     def online_users(subreddit)
-      Nokogiri::HTML(open("https://reddit.com/r/#{subreddit}")).search('.side .users-online .number').text
+      Nokogiri::HTML(RestClient.get("https://reddit.com/r/#{subreddit}")).search('.side .users-online .number').text
     end
 
   end

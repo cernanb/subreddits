@@ -9,10 +9,6 @@ Please consider the following limitations when running the gem:
 
 ~Subreddits will not automatically be capitalized
 
-~First Post is the first post on the "hot" tab in the subreddit's page
-
-~Running this gem too many times too quickly will get you '429 Too Many Requests (OpenURI::HTTPError)'
-
 ## Installation
 
 Add this line to your application's Gemfile:
