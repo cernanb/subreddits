@@ -1,5 +1,5 @@
 class Subreddits::TopTrend
-    attr_accessor :name, :url, :total, :online
+    attr_accessor :name, :url
     @@all = []
 
     def initialize(name, url)
@@ -19,6 +19,10 @@ class Subreddits::TopTrend
 
     def online_users(subreddit)
       Nokogiri::HTML(RestClient.get("https://reddit.com/r/#{subreddit}")).search('.side .users-online .number').text
+    end
+
+    def information(subreddit)
+      Nokogiri::HTML(RestClient.get("https://reddit.com/r/#{subreddit}")).search('.side .md').text
     end
 
   end

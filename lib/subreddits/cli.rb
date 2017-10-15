@@ -20,6 +20,7 @@ class Subreddits::CLI
       puts "Total Subscribers: #{info.total_users(info.name)}"
       puts "Subscribers Online: #{info.online_users(info.name)}"
       puts "URL: #{info.url}"
+      puts "Information: #{info.information(info.name)}"
       retrieve_info
     else
       puts "Please try again! Input the number from the list or type 'exit'"
