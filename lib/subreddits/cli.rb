@@ -1,3 +1,4 @@
+require 'pry'
 class Subreddits::CLI
 
   def run
@@ -15,12 +16,14 @@ class Subreddits::CLI
     if input == "exit"
       goodbye
     elsif input.to_i.between?(1,5)
-      info = Subreddits::TopTrend.all[input.to_i-1]
-      puts "Name: #{info.name}"
-      puts "Total Subscribers: #{info.total_users(info.name)}"
-      puts "Subscribers Online: #{info.online_users(info.name)}"
-      puts "URL: #{info.url}"
-      puts "Information: #{info.information(info.name)}"
+      subreddit = Subreddits::TopTrend.all[input.to_i-1]
+      Subreddits::Scraper.scrape_detail(subreddit)
+      puts "Name: #{subreddit.name}"
+      puts "Total Subscribers: #{subreddit.total_users}"
+      puts "Subscribers Online: #{subreddit.online_users}"
+      puts "URL: #{subreddit.url}"
+      puts "Information: #{subreddit.information}"
+      binding.pry
       retrieve_info
     else
       puts "Please try again! Input the number from the list or type 'exit'"

@@ -1,5 +1,7 @@
+require 'pry'
+
 class Subreddits::TopTrend
-    attr_accessor :name, :url
+    attr_accessor :name, :url, :total_users, :online_users, :information
     @@all = []
 
     def initialize(name, url)
@@ -13,16 +15,20 @@ class Subreddits::TopTrend
       @@all
     end
 
-    def total_users(subreddit)
-      Nokogiri::HTML(RestClient.get("https://reddit.com/r/#{subreddit}")).search('.side .subscribers .number').text
-    end
-
-    def online_users(subreddit)
-      Nokogiri::HTML(RestClient.get("https://reddit.com/r/#{subreddit}")).search('.side .users-online .number').text
-    end
-
-    def information(subreddit)
-      Nokogiri::HTML(RestClient.get("https://reddit.com/r/#{subreddit}")).search('.side .md').text
+    def self.total_users_above(num)
+      #this method will return an array of all TopTrend objects that have more total_users than the num passed in
+      total_users = []
+      self.all.each do |user|
+        #binding.pry
+        total_users << user.total_users.gsub("," , "").to_i
+      end
+      above_num = []
+      total_users.each do |total|
+        if total > num
+          above_num << total
+        end
+      end
+      above_num #array each do, #if above number
     end
 
   end
